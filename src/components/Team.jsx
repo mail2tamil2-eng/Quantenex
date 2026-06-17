@@ -58,7 +58,7 @@ function MemberCard({ member, delay }) {
   return (
     <div
       ref={ref}
-      className={`group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${delay}ms`, transitionDuration: '600ms' }}
     >
       {/* Card top banner */}
@@ -68,7 +68,6 @@ function MemberCard({ member, delay }) {
             backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%)',
           }}
         />
-        {/* Quantum pattern dots */}
         {[...Array(6)].map((_, i) => (
           <div key={i}
             className="absolute w-1.5 h-1.5 rounded-full bg-white/20"
@@ -80,7 +79,7 @@ function MemberCard({ member, delay }) {
       {/* Avatar */}
       <div className="px-7 pb-7">
         <div className="relative -mt-12 mb-5">
-          <div className="w-24 h-24 rounded-2xl border-4 border-white shadow-xl overflow-hidden bg-slate-100">
+          <div className="w-24 h-24 rounded-2xl border-4 border-white dark:border-slate-800 shadow-xl overflow-hidden bg-slate-100 dark:bg-slate-700">
             <img
               src={member.photo}
               alt={member.name}
@@ -96,20 +95,18 @@ function MemberCard({ member, delay }) {
           </div>
         </div>
 
-        <h3 className="text-[18px] font-bold text-slate-900 leading-snug mb-1">{member.name}</h3>
+        <h3 className="text-[18px] font-bold text-slate-900 dark:text-white leading-snug mb-1">{member.name}</h3>
         <p className="text-[13px] font-semibold text-brand mb-4 leading-snug">{member.title}</p>
-        <p className="text-[14px] text-slate-500 leading-relaxed mb-5">{member.bio}</p>
+        <p className="text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed mb-5">{member.bio}</p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-5">
           {member.tags.map(t => (
-            <span key={t} className="px-2.5 py-1 bg-slate-100 text-slate-500 text-[11.5px] font-semibold rounded-full">
+            <span key={t} className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-[11.5px] font-semibold rounded-full">
               {t}
             </span>
           ))}
         </div>
 
-        {/* LinkedIn */}
         <a
           href={member.linkedin}
           target="_blank"
@@ -129,26 +126,24 @@ export default function Team() {
   const [ref, visible] = useInView()
 
   return (
-    <section id="team" className="py-24 bg-slate-50">
+    <section id="team" className="py-24 bg-slate-50 dark:bg-slate-950">
       <div className="max-w-[1200px] mx-auto px-6">
 
-        {/* Header */}
         <div
           ref={ref}
           className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
-          <span className="inline-block px-4 py-1.5 bg-blue-50 text-brand text-[12.5px] font-bold uppercase tracking-widest rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-blue-50 dark:bg-brand/10 text-brand text-[12.5px] font-bold uppercase tracking-widest rounded-full mb-4 border border-blue-200 dark:border-brand/30">
             Our Team
           </span>
-          <h2 className="text-4xl lg:text-[46px] font-extrabold text-slate-900 leading-tight tracking-tight">
+          <h2 className="text-4xl lg:text-[46px] font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
             Meet The Experts Driving<br className="hidden lg:block" /> <span className="gradient-text">Our Innovation</span>
           </h2>
-          <p className="text-[17.5px] text-slate-500 mt-4 max-w-[560px] mx-auto leading-relaxed">
+          <p className="text-[17.5px] text-slate-500 dark:text-slate-400 mt-4 max-w-[560px] mx-auto leading-relaxed">
             A founding team combining decades of expertise in cybersecurity research, fintech, enterprise engineering, and financial compliance.
           </p>
         </div>
 
-        {/* Cards grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {MEMBERS.map((m, i) => (
             <MemberCard key={m.name} member={m} delay={i * 100} />

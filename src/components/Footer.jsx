@@ -1,7 +1,7 @@
 const COL = [
   {
     title: 'About',
-    links: ['Our Mission', 'Why QuantaNex', 'Our Team', 'Blog', 'Careers', 'Contact'],
+    links: ['Our Mission', 'Why QuantaNex', 'Our Team'],
   },
   {
     title: 'Product',
@@ -13,7 +13,7 @@ const COL = [
   },
   {
     title: 'SDK',
-    links: ['Documentation', 'API Reference', 'Quickstart Guide', 'SDK Downloads', 'Changelog'],
+    links: ['SDK Overview'],
   },
 ]
 

@@ -54,25 +54,25 @@ export default function SDKSection() {
   const [rightRef, rightVis] = useInView()
 
   return (
-    <section id="sdk" className="py-24 bg-slate-50">
+    <section id="sdk" className="py-24 bg-white dark:bg-slate-900">
       <div className="max-w-[1200px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
         {/* Left */}
         <div ref={leftRef} className={`transition-all duration-700 ${leftVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <span className="inline-block px-4 py-1.5 bg-blue-50 text-brand text-[12.5px] font-bold uppercase tracking-widest rounded-full mb-5">
+          <span className="inline-block px-4 py-1.5 bg-blue-50 dark:bg-brand/10 text-brand text-[12.5px] font-bold uppercase tracking-widest rounded-full mb-5 border border-blue-200 dark:border-brand/30">
             SDK
           </span>
-          <h2 className="text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-tight tracking-tight mb-4">
+          <h2 className="text-4xl lg:text-[44px] font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-4">
             Built for developers,<br /> <span className="gradient-text">trusted by security teams</span>
           </h2>
-          <p className="text-[17px] text-slate-500 leading-relaxed mb-7">
+          <p className="text-[17px] text-slate-500 dark:text-slate-400 leading-relaxed mb-7">
             A clean, consistent SDK across every platform. Quantum-safe cryptography and behavioral biometrics handled transparently — you just call{' '}
-            <code className="bg-slate-100 px-2 py-0.5 rounded text-[14px] text-brand font-mono">authenticate()</code>.
+            <code className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-[14px] text-brand font-mono">authenticate()</code>.
           </p>
 
           <div className="flex flex-wrap gap-2.5 mb-8">
             {PLATFORMS.map(p => (
-              <div key={p.label} className="flex items-center gap-2 px-3.5 py-2 bg-white border-[1.5px] border-slate-200 rounded-lg text-[13.5px] font-semibold text-slate-700 hover:border-brand hover:text-brand transition-colors duration-200 cursor-pointer">
+              <div key={p.label} className="flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-slate-800 border-[1.5px] border-slate-200 dark:border-slate-700 rounded-lg text-[13.5px] font-semibold text-slate-700 dark:text-slate-300 hover:border-brand hover:text-brand transition-colors duration-200 cursor-pointer">
                 <span>{p.icon}</span> {p.label}
               </div>
             ))}
@@ -86,7 +86,6 @@ export default function SDKSection() {
         {/* Code block */}
         <div ref={rightRef} className={`transition-all duration-700 delay-150 ${rightVis ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ background: '#050D1E' }}>
-            {/* Header bar */}
             <div className="flex items-center justify-between px-5 py-3.5 border-b" style={{ background:'rgba(255,255,255,0.04)', borderColor:'rgba(255,255,255,0.07)' }}>
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
@@ -95,7 +94,6 @@ export default function SDKSection() {
               </div>
               <span className="text-[12px] font-mono" style={{ color:'rgba(255,255,255,0.35)' }}>auth.js — QuantaNex Web SDK</span>
             </div>
-            {/* Code body */}
             <div className="p-6 font-mono text-[13.5px] leading-[1.85] overflow-x-auto">
               {CODE.map((line, i) => (
                 <div key={i}>
